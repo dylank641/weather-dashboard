@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
@@ -19,25 +23,65 @@
         <div class="search-section">
             <h3>Search for a City:</h3>
             <input type="text" placeholder="City Name" id="name" class="form-input" />
-            <button class="searchBtn">Search</button>
+            <button class="searchBtn" id="searchB">Search</button>
             <hr style="width:25vw;text-align:left;margin-top:20px">
         </div>
         
         <!--results section-->
         <div class="results-section">
             <section>
-                <div class="info">
-
+                <div class="gang">
+                    <div class="info">
+                        <h2 id="cityName"></h2><h2 id="currentDay"><span id='currentDayOne'></span><span id="icon"></span></h2>
+                    </div>
+                    <div id="infoTwo">
+                        <h5 id="temp"></h5>
+                        <h5 id="wind"></h5>
+                        <h5 id="humidity"></h5>
+                        <h5 id="uvIndex"></h5>
+                    </div>
                 </div>
                 <div class="weather-cards">
                     <h3>5-Day Forecast:</h3>
-                    
+                    <div class="cards">
+                        <div class="card1">
+                            <h5 id="date1"></h5>
+                            <span id="dateIcon1"></span>
+                            <h5 class="forecastText" id="temp1"></h5>
+                            <h5 class="forecastText" id="wind1"></h5>
+                        </div>
+                        <div class="card2">
+                            <h5 id="date2"></h5>
+                            <span id="dateIcon2"></span>
+                            <h5 class="forecastText" id="temp2"></h5>
+                            <h5 class="forecastText" id="wind2"></h5>
+                        </div>
+                        <div class="card3">
+                            <h5 id="date3"></h5>
+                            <span id="dateIcon3"></span>
+                            <h5 class="forecastText" id="temp3"></h5>
+                            <h5 class="forecastText" id="wind3"></h5>
+                        </div>
+                        <div class="card4">
+                            <h5 id="date4"></h5>
+                            <span id="dateIcon4"></span>
+                            <h5 class="forecastText" id="temp4"></h5>
+                            <h5 class="forecastText" id="wind4"></h5>
+                        </div>
+                        <div class="card5">
+                            <h5 id="date5"></h5>
+                            <span id="dateIcon5"></span>
+                            <h5 class="forecastText" id="temp5"></h5>
+                            <h5 class="forecastText" id="wind5"></h5>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
     
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
