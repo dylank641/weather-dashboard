@@ -31,17 +31,22 @@ var longitude = 0;
 
 
 //fucntion for pasting previous search button
-var prevBtn = function(){
+var prevBtn = function(city){
   var buttons = document.querySelectorAll('.buttons button')
-  let prevBtnVal = document.getElementById('name').value;
+  //let prevBtnVal = document.getElementById('name').value;
   let prevBtnEl = document.createElement('button');
-  prevBtnEl.innerHTML = prevBtnVal;
+  prevBtnEl.innerHTML = city;
   prevBtnEl.className = "prevSearchBtn";
   if (buttons.length < 7){
     prevBtnList.appendChild(prevBtnEl);
   }
   console.log(buttons.length)
+  
 }
+
+
+//function for saving city name into local storage
+
 
 
 //function handleCitySearch(event) {
@@ -152,12 +157,10 @@ var prevBtn = function(){
 
 
   //click function to run all other functions
-document.getElementById('searchB').addEventListener('click', function(){
-    
-    let city = document.getElementById('name').value;
-    console.log(city);
+function test(){
+  let city = document.getElementById('name').value;
     cords(city);
-    prevBtn();
+    //prevBtn();
     function update() {
       $('#currentDayOne').html(moment().format('l'));
     }
@@ -182,5 +185,45 @@ document.getElementById('searchB').addEventListener('click', function(){
       $('#date5').html(moment().add(5, 'days').format('l'));
     }
     setInterval(updateFive, 1000);
+    saveCity(city);
+}
+
+
+document.getElementById('searchB').addEventListener('click', function(){
+  test();
 })
 
+$('#btnList').on('click', '.prevSearchBtn', function(){
+  let cityPrev = $(this).html();
+  cords(cityPrev);
+})
+
+
+function saveBtnList(){
+  let cityList = JSON.parse(localStorage.getItem('cityList'));
+  $('#btnList').empty();
+  if(cityList != null){
+    for(i = 0; i<cityList.length; i++){
+    prevBtn(cityList[i]);
+    }
+  }
+}
+
+function saveCity(city){
+  let cityList = JSON.parse(localStorage.getItem('cityList'));
+  if(cityList != null){
+    //add city to city list
+    if (!cityList.includes(city)){
+      cityList.push(city);
+    }
+  }
+  else{
+    // create city list and add city
+    cityList = [];
+    cityList.push(city);
+  }
+  localStorage.setItem('cityList', JSON.stringify(cityList))
+  saveBtnList();
+}
+
+saveBtnList();
