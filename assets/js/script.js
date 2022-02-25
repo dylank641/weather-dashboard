@@ -196,6 +196,9 @@ document.getElementById('searchB').addEventListener('click', function(){
 $('#btnList').on('click', '.prevSearchBtn', function(){
   let cityPrev = $(this).html();
   cords(cityPrev);
+ 
+    $('#currentDayOne').html(moment().format('l'));
+  
 })
 
 
