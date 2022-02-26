@@ -51,7 +51,7 @@ var prevBtn = function(city){
 
 //function handleCitySearch(event) {
     var cords = function (city) {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}`)
     .then(data=>data.json())
     .then(function(results){
     lattitude = results.coord.lat;
