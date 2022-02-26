@@ -1,3 +1,5 @@
+///////////    VARIABLES    ///////////////
+///////////////////////////////////////////
 let key = '6504515af8b3f29040303da22929a4c7';
 let cityTitleEl = document.getElementById('cityName');
 let currentTempEl = document.getElementById('temp');
@@ -28,6 +30,8 @@ let humidity4El = document.getElementById('humidity4');
 let humidity5El = document.getElementById('humidity5');
 var lattitude = 0;
 var longitude = 0;
+//////////////////////////
+
 
 
 //fucntion for pasting previous search button
@@ -43,10 +47,6 @@ var prevBtn = function(city){
   console.log(buttons.length)
   
 }
-
-
-//function for saving city name into local storage
-
 
 
 //function handleCitySearch(event) {
@@ -77,7 +77,7 @@ var prevBtn = function(city){
     var apiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lattitude + "&lon=" + longitude + "&exclude=alerts&units=imperial&lang=en&appid=" + key;
         fetch(apiURL)
           .then(function (response) {
-            // request was successful
+            // if request was successful
             if (response.ok) {
               response.json().then(function (data) {
                 console.log(data);
@@ -86,7 +86,7 @@ var prevBtn = function(city){
                 uvIndexEl.innerHTML = 'UV Index: ' + uvindex;
                 iconEl.innerHTML =  "<img src='https://openweathermap.org/img/wn/" + icon + "@2x.png' width='50px' height='50px'>";
 
-                //weatherIcon.html("<img src='https://openweathermap.org/img/wn/" + icon + "@2x.png' width='50px' height='50px' alt='" + iconDesc + "'>");
+                // UV Index color options
                 if (parseFloat(uvindex) <= 2) {
                   document.getElementById('uvIndex').style.backgroundColor = 'green';
                 } else if (parseFloat(uvindex) <= 8) {
