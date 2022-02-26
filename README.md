@@ -4,4 +4,4 @@
 
 ## Click this link to check out the app: https://dylank641.github.io/weather-dashboard/
 
-![image](./assets/images/webpageScreenshot.png)
+![image](./assets/images/webpageScreenshot (2).png)
